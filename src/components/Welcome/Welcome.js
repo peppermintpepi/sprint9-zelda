@@ -12,6 +12,9 @@ function Welcome() {
                 <li>
                     <Link to='/games'>Games</Link>
                 </li>
+                <li>
+                    <Link to='staff'>Staff</Link>
+                </li>
             </ul>
         </div>
     );
