@@ -30,7 +30,7 @@ function StaffInfo() {
                 setGameName(gameResponse.data.data.name);
             })
             .catch((error) => {
-                console.error('Error fetching la información del juego: ', error);
+                console.error('Error fetching la informació del personatge: ', error);
             });
     }, [staffId]);
     

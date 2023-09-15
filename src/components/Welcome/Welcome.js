@@ -18,6 +18,9 @@ function Welcome() {
                 <li>
                     <Link to='/characters'>Characters</Link>
                 </li>
+                <li>
+                    <Link to='/monsters'>Monsters</Link>
+                </li>
             </ul>
         </div>
     );

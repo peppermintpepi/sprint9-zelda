@@ -7,6 +7,8 @@ import Staff from "./components/Staff/Staff";
 import StaffInfo from "./components/StaffInfo/StaffInfo";
 import Characters from "./components/Characters/Characters";
 import CharacterInfo from "./components/CharactersInfo/CharactersInfo";
+import Monsters from "./components/Monsters/Monsters";
+import MonstersInfo from "./components/MonstersInfo/MonstersInfo";
 
 function App() {
   return (
@@ -20,6 +22,8 @@ function App() {
           <Route path="/staff/:staffId" element={<StaffInfo />} />
           <Route path="/characters" element={<Characters />} />
           <Route path="/characters/:characterId" element={<CharacterInfo />} />
+          <Route path="/monsters" element={<Monsters />} />
+          <Route path="/monsters/:monsterId" element={<MonstersInfo />} />
         </Routes>
       </div>
     </Router>
