@@ -6,12 +6,28 @@ import { useParams, Link } from 'react-router-dom';
 function CharacterInfo() {
     const { characterId } = useParams();
     const [character, setCharacter] = useState(null);
+    const [gameName, setGameName] = useState(null);
 
     useEffect(() => {
         axios.get(`https://zelda.fanapis.com/api/characters/${characterId}`)
             .then((response) => {
                 console.log('Data from API:', response.data);
                 setCharacter(response.data);
+
+                const appearancesArray = response.data.data.appearances;
+                
+                if (Array.isArray(appearancesArray) && appearancesArray.length > 0) {
+                    const gameURL = appearancesArray[0];
+                    const gameID = gameURL.substring(gameURL.lastIndexOf('/') + 1);
+    
+                    return axios.get(`https://zelda.fanapis.com/api/games/${gameID}`);
+                } else {
+                    throw new Error('Invalid appearances format');
+                }
+            })
+            .then((gameResponse) => {
+                console.log('Game Data from API:', gameResponse.data);
+                setGameName(gameResponse.data.data.name);
             })
             .catch((error) => {
                 console.error('Error fetching la información del personatge: ', error);
@@ -27,7 +43,8 @@ function CharacterInfo() {
     return (
         <div>
             <h2>{character.data.name}</h2>
-            <p>{character.data.description}</p>
+            <p>Appearances: {gameName}</p>
+            <p>About the character: {character.data.description}</p>
             <p>Gender: {character.data.gender}</p>
             <p>Race: {character.data.race}</p>
 
