@@ -13,7 +13,10 @@ function Welcome() {
                     <Link to='/games'>Games</Link>
                 </li>
                 <li>
-                    <Link to='staff'>Staff</Link>
+                    <Link to='/staff'>Staff</Link>
+                </li>
+                <li>
+                    <Link to='/characters'>Characters</Link>
                 </li>
             </ul>
         </div>

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from 'axios';
 import { useParams, Link } from 'react-router-dom';
 
+// renderitzar la informació de cada treballador
 function StaffInfo() {
     const { staffId } = useParams();
     const [programer, setProgramer] = useState(null);
